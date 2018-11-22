@@ -1,5 +1,10 @@
 package colormatch;
 
+import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Miguel Dinis
@@ -13,7 +18,20 @@ public class Board extends javax.swing.JPanel {
      */
     public Board() {
         initComponents();
-        gc = new GameController();
+        
+        JPanel[] p = new JPanel[9];
+        p[0] = panel1;
+        p[1] = panel2;
+        p[2] = panel3;
+        p[3] = panel4;
+        p[4] = panel5;
+        p[5] = panel6;
+        p[6] = panel7;
+        p[7] = panel8;
+        p[8] = panel9;
+        
+        gc = new GameController(p);
+        
     }
 
     /**
@@ -26,19 +44,19 @@ public class Board extends javax.swing.JPanel {
     private void initComponents() {
 
         game = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
+        panel1 = new javax.swing.JPanel();
+        panel2 = new javax.swing.JPanel();
+        panel3 = new javax.swing.JPanel();
+        panel4 = new javax.swing.JPanel();
+        panel5 = new javax.swing.JPanel();
+        panel6 = new javax.swing.JPanel();
+        panel7 = new javax.swing.JPanel();
+        panel8 = new javax.swing.JPanel();
+        panel9 = new javax.swing.JPanel();
         top = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        matchingColor = new javax.swing.JPanel();
+        scoreLabel = new javax.swing.JLabel();
+        closeButton = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 51, 51));
         setMinimumSize(new java.awt.Dimension(360, 390));
@@ -51,201 +69,211 @@ public class Board extends javax.swing.JPanel {
         game.setPreferredSize(new java.awt.Dimension(340, 340));
         game.setLayout(new java.awt.GridLayout(3, 3, 10, 10));
 
-        jPanel4.setBackground(new java.awt.Color(255, 0, 0));
-        jPanel4.setPreferredSize(new java.awt.Dimension(100, 100));
+        panel1.setBackground(new java.awt.Color(255, 0, 0));
+        panel1.setPreferredSize(new java.awt.Dimension(100, 100));
+        panel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel1MouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 106, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
-        );
-
-        game.add(jPanel4);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 106, Short.MAX_VALUE)
         );
 
-        game.add(jPanel1);
+        game.add(panel1);
 
-        jPanel2.setBackground(new java.awt.Color(0, 255, 0));
+        panel2.setBackground(new java.awt.Color(255, 255, 0));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
+        panel2.setLayout(panel2Layout);
+        panel2Layout.setHorizontalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 106, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
-        );
-
-        game.add(jPanel2);
-
-        jPanel7.setBackground(new java.awt.Color(0, 0, 255));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel2Layout.setVerticalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 106, Short.MAX_VALUE)
         );
 
-        game.add(jPanel7);
+        game.add(panel2);
 
-        jPanel3.setBackground(new java.awt.Color(255, 0, 153));
+        panel3.setBackground(new java.awt.Color(0, 255, 0));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
+        panel3.setLayout(panel3Layout);
+        panel3Layout.setHorizontalGroup(
+            panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 106, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
-        );
-
-        game.add(jPanel3);
-
-        jPanel5.setBackground(new java.awt.Color(0, 255, 255));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel3Layout.setVerticalGroup(
+            panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 106, Short.MAX_VALUE)
         );
 
-        game.add(jPanel5);
+        game.add(panel3);
 
-        jPanel6.setBackground(new java.awt.Color(0, 255, 0));
+        panel4.setBackground(new java.awt.Color(0, 0, 255));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panel4Layout = new javax.swing.GroupLayout(panel4);
+        panel4.setLayout(panel4Layout);
+        panel4Layout.setHorizontalGroup(
+            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 106, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
-        );
-
-        game.add(jPanel6);
-
-        jPanel8.setBackground(new java.awt.Color(0, 255, 255));
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel4Layout.setVerticalGroup(
+            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 106, Short.MAX_VALUE)
         );
 
-        game.add(jPanel8);
+        game.add(panel4);
 
-        jPanel9.setBackground(new java.awt.Color(255, 0, 0));
+        panel5.setBackground(new java.awt.Color(255, 0, 153));
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panel5Layout = new javax.swing.GroupLayout(panel5);
+        panel5.setLayout(panel5Layout);
+        panel5Layout.setHorizontalGroup(
+            panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 106, Short.MAX_VALUE)
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panel5Layout.setVerticalGroup(
+            panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 106, Short.MAX_VALUE)
         );
 
-        game.add(jPanel9);
+        game.add(panel5);
+
+        panel6.setBackground(new java.awt.Color(0, 255, 255));
+
+        javax.swing.GroupLayout panel6Layout = new javax.swing.GroupLayout(panel6);
+        panel6.setLayout(panel6Layout);
+        panel6Layout.setHorizontalGroup(
+            panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 106, Short.MAX_VALUE)
+        );
+        panel6Layout.setVerticalGroup(
+            panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 106, Short.MAX_VALUE)
+        );
+
+        game.add(panel6);
+
+        panel7.setBackground(new java.awt.Color(0, 255, 0));
+
+        javax.swing.GroupLayout panel7Layout = new javax.swing.GroupLayout(panel7);
+        panel7.setLayout(panel7Layout);
+        panel7Layout.setHorizontalGroup(
+            panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 106, Short.MAX_VALUE)
+        );
+        panel7Layout.setVerticalGroup(
+            panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 106, Short.MAX_VALUE)
+        );
+
+        game.add(panel7);
+
+        panel8.setBackground(new java.awt.Color(0, 255, 255));
+
+        javax.swing.GroupLayout panel8Layout = new javax.swing.GroupLayout(panel8);
+        panel8.setLayout(panel8Layout);
+        panel8Layout.setHorizontalGroup(
+            panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 106, Short.MAX_VALUE)
+        );
+        panel8Layout.setVerticalGroup(
+            panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 106, Short.MAX_VALUE)
+        );
+
+        game.add(panel8);
+
+        panel9.setBackground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout panel9Layout = new javax.swing.GroupLayout(panel9);
+        panel9.setLayout(panel9Layout);
+        panel9Layout.setHorizontalGroup(
+            panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 106, Short.MAX_VALUE)
+        );
+        panel9Layout.setVerticalGroup(
+            panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 106, Short.MAX_VALUE)
+        );
+
+        game.add(panel9);
 
         add(game, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 340, 340));
 
         top.setBackground(new java.awt.Color(0, 51, 51));
         top.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel10.setBackground(new java.awt.Color(255, 0, 0));
-        jPanel10.setMinimumSize(new java.awt.Dimension(20, 20));
-        jPanel10.setPreferredSize(new java.awt.Dimension(20, 20));
+        matchingColor.setBackground(new java.awt.Color(255, 0, 0));
+        matchingColor.setMinimumSize(new java.awt.Dimension(20, 20));
+        matchingColor.setPreferredSize(new java.awt.Dimension(20, 20));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout matchingColorLayout = new javax.swing.GroupLayout(matchingColor);
+        matchingColor.setLayout(matchingColorLayout);
+        matchingColorLayout.setHorizontalGroup(
+            matchingColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 20, Short.MAX_VALUE)
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        matchingColorLayout.setVerticalGroup(
+            matchingColorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        top.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 20, 20));
+        top.add(matchingColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 20, 20));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Score: 100");
-        jLabel1.setMaximumSize(new java.awt.Dimension(52, 30));
-        jLabel1.setMinimumSize(new java.awt.Dimension(52, 30));
-        jLabel1.setPreferredSize(new java.awt.Dimension(52, 30));
-        top.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 40));
+        scoreLabel.setForeground(new java.awt.Color(255, 255, 255));
+        scoreLabel.setText("Score: 100");
+        scoreLabel.setMaximumSize(new java.awt.Dimension(52, 30));
+        scoreLabel.setMinimumSize(new java.awt.Dimension(52, 30));
+        scoreLabel.setPreferredSize(new java.awt.Dimension(52, 30));
+        top.add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/colormatch/assets/close.png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/colormatch/assets/close.png"))); // NOI18N
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                closeButtonMouseClicked(evt);
             }
         });
-        top.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
+        top.add(closeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         add(top, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void closeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMouseClicked
         gc.closeGame();
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_closeButtonMouseClicked
+
+    private void panel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel1MouseClicked
+        // TODO add your handling code here:
+        gc.click(panel1);
+    }//GEN-LAST:event_panel1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel closeButton;
     private javax.swing.JPanel game;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel matchingColor;
+    private javax.swing.JPanel panel1;
+    private javax.swing.JPanel panel2;
+    private javax.swing.JPanel panel3;
+    private javax.swing.JPanel panel4;
+    private javax.swing.JPanel panel5;
+    private javax.swing.JPanel panel6;
+    private javax.swing.JPanel panel7;
+    private javax.swing.JPanel panel8;
+    private javax.swing.JPanel panel9;
+    private javax.swing.JLabel scoreLabel;
     private javax.swing.JPanel top;
     // End of variables declaration//GEN-END:variables
 }
