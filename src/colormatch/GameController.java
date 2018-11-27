@@ -6,8 +6,6 @@
 package colormatch;
 
 import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -26,7 +24,8 @@ public class GameController {
     public GameController(JPanel p[]) {
         this.p = p;
         
-        setRandomColor();
+        randomizeCurrentColor();
+        randomizeColorPanel();
         
         startTime = System.currentTimeMillis();
     }
@@ -39,13 +38,65 @@ public class GameController {
     }
     
     private void match(boolean matchColor) {
-        if (matchColor) score = 10 / elapsedTime;
+        if (matchColor) score = Math.round(10 / elapsedTime);
+        
+        // reset clock 
+        startTime = 0;
+        elapsedTime = 0;
+        
+        // change colors to random
+        randomizeColorPanel();
+        
+        // change currentColor
+        randomizeCurrentColor();
     }
     
-    private void setRandomColor() {
-        currentColor = Color.BLACK;
+    private void randomizeCurrentColor() {
+        currentColor = pickRandomColor();
     }
-
+    
+    private void randomizeColorPanel() {
+        for (int i = 0; i < p.length; i++) {
+            p[i].setBackground(pickRandomColor());
+        }
+    }
+    
+    private Color pickRandomColor() {
+        int randomNumber = (int) Math.random() * 6;
+        
+        Color randomColor;
+        
+        switch (randomNumber) {
+            case 0:
+                randomColor = Color.RED;
+                break;
+                
+            case 1:
+                randomColor = Color.YELLOW;
+                break;
+                
+            case 2:
+                randomColor = Color.GREEN;
+                break;
+            
+            case 3:
+                randomColor = Color.BLUE;
+                break;
+                
+            case 4:
+                randomColor = Color.PINK;
+                break;
+            
+            case 5:
+                randomColor = Color.CYAN;
+                break;
+            
+            default:
+                randomColor = Color.RED;
+        }
+        
+        return randomColor;
+    }
     
     public void closeGame() {
         System.exit(0);
