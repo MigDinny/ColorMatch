@@ -29,8 +29,8 @@ public class Board extends javax.swing.JPanel {
         p[6] = panel7;
         p[7] = panel8;
         p[8] = panel9;
-        
-        gc = new GameController(p);
+                
+        gc = new GameController(p, matchingColor, scoreLabel);
         
     }
 
@@ -91,6 +91,11 @@ public class Board extends javax.swing.JPanel {
         game.add(panel1);
 
         panel2.setBackground(new java.awt.Color(255, 255, 0));
+        panel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
@@ -106,6 +111,11 @@ public class Board extends javax.swing.JPanel {
         game.add(panel2);
 
         panel3.setBackground(new java.awt.Color(0, 255, 0));
+        panel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
         panel3.setLayout(panel3Layout);
@@ -121,6 +131,11 @@ public class Board extends javax.swing.JPanel {
         game.add(panel3);
 
         panel4.setBackground(new java.awt.Color(0, 0, 255));
+        panel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel4Layout = new javax.swing.GroupLayout(panel4);
         panel4.setLayout(panel4Layout);
@@ -136,6 +151,11 @@ public class Board extends javax.swing.JPanel {
         game.add(panel4);
 
         panel5.setBackground(new java.awt.Color(255, 0, 153));
+        panel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel5Layout = new javax.swing.GroupLayout(panel5);
         panel5.setLayout(panel5Layout);
@@ -151,6 +171,11 @@ public class Board extends javax.swing.JPanel {
         game.add(panel5);
 
         panel6.setBackground(new java.awt.Color(0, 255, 255));
+        panel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel6Layout = new javax.swing.GroupLayout(panel6);
         panel6.setLayout(panel6Layout);
@@ -166,6 +191,11 @@ public class Board extends javax.swing.JPanel {
         game.add(panel6);
 
         panel7.setBackground(new java.awt.Color(0, 255, 0));
+        panel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel7MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel7Layout = new javax.swing.GroupLayout(panel7);
         panel7.setLayout(panel7Layout);
@@ -181,6 +211,11 @@ public class Board extends javax.swing.JPanel {
         game.add(panel7);
 
         panel8.setBackground(new java.awt.Color(0, 255, 255));
+        panel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel8MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel8Layout = new javax.swing.GroupLayout(panel8);
         panel8.setLayout(panel8Layout);
@@ -196,6 +231,11 @@ public class Board extends javax.swing.JPanel {
         game.add(panel8);
 
         panel9.setBackground(new java.awt.Color(255, 0, 0));
+        panel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panel9MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel9Layout = new javax.swing.GroupLayout(panel9);
         panel9.setLayout(panel9Layout);
@@ -258,6 +298,46 @@ public class Board extends javax.swing.JPanel {
         // TODO add your handling code here:
         gc.click(panel1);
     }//GEN-LAST:event_panel1MouseClicked
+
+    private void panel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel2MouseClicked
+        // TODO add your handling code here:
+        gc.click(panel2);
+    }//GEN-LAST:event_panel2MouseClicked
+
+    private void panel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel3MouseClicked
+        // TODO add your handling code here:
+        gc.click(panel3);
+    }//GEN-LAST:event_panel3MouseClicked
+
+    private void panel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel4MouseClicked
+        // TODO add your handling code here:
+        gc.click(panel4);
+    }//GEN-LAST:event_panel4MouseClicked
+
+    private void panel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel5MouseClicked
+        // TODO add your handling code here:
+        gc.click(panel5);
+    }//GEN-LAST:event_panel5MouseClicked
+
+    private void panel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel6MouseClicked
+        // TODO add your handling code here:
+        gc.click(panel6);
+    }//GEN-LAST:event_panel6MouseClicked
+
+    private void panel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel7MouseClicked
+        // TODO add your handling code here:
+        gc.click(panel7);
+    }//GEN-LAST:event_panel7MouseClicked
+
+    private void panel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel8MouseClicked
+        // TODO add your handling code here:
+        gc.click(panel8);
+    }//GEN-LAST:event_panel8MouseClicked
+
+    private void panel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel9MouseClicked
+        // TODO add your handling code here:
+        gc.click(panel9);
+    }//GEN-LAST:event_panel9MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

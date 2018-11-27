@@ -6,6 +6,7 @@
 package colormatch;
 
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -17,12 +18,16 @@ public class GameController {
     private final JPanel p[];
     private int score = 0;
     private Color currentColor;
+    private JPanel matchingColorPanel;
+    private JLabel scoreLabel;
     
     private long startTime = 0;
     private long elapsedTime = 0;
     
-    public GameController(JPanel p[]) {
+    public GameController(JPanel p[], JPanel matchingColorPanel, JLabel scoreLabel) {
         this.p = p;
+        this.matchingColorPanel = matchingColorPanel;
+        this.scoreLabel = scoreLabel;
         
         randomizeCurrentColor();
         randomizeColorPanel();
@@ -38,7 +43,9 @@ public class GameController {
     }
     
     private void match(boolean matchColor) {
-        if (matchColor) score = Math.round(10 / elapsedTime);
+        if (matchColor) score += Math.round(10 / elapsedTime);
+        
+        scoreLabel.setText("Score: " + score);
         
         // reset clock 
         startTime = 0;
@@ -53,6 +60,7 @@ public class GameController {
     
     private void randomizeCurrentColor() {
         currentColor = pickRandomColor();
+        matchingColorPanel.setBackground(pickRandomColor());
     }
     
     private void randomizeColorPanel() {
@@ -62,7 +70,9 @@ public class GameController {
     }
     
     private Color pickRandomColor() {
-        int randomNumber = (int) Math.random() * 6;
+        int randomNumber = (int) (Math.random() * 6);
+        
+        System.out.println(randomNumber);
         
         Color randomColor;
         
@@ -84,7 +94,8 @@ public class GameController {
                 break;
                 
             case 4:
-                randomColor = Color.PINK;
+                // pink
+                randomColor = new Color(255, 0, 153);
                 break;
             
             case 5:
