@@ -6,6 +6,8 @@
 package colormatch;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -16,13 +18,13 @@ import javax.swing.JPanel;
 public class GameController {
    
     private final JPanel p[];
-    private int score = 0;
+    private float score = 0f;
     private Color currentColor;
     private JPanel matchingColorPanel;
     private JLabel scoreLabel;
     
     private long startTime = 0;
-    private long elapsedTime = 0;
+    private float elapsedTime = 0f;
     
     public GameController(JPanel p[], JPanel matchingColorPanel, JLabel scoreLabel) {
         this.p = p;
@@ -32,24 +34,25 @@ public class GameController {
         randomizeCurrentColor();
         randomizeColorPanel();
         
-        startTime = System.currentTimeMillis();
+        this.startTime = System.currentTimeMillis();
     }
     
-    public void click(JPanel clickedPanel) {
-        elapsedTime = System.currentTimeMillis() - startTime;
+    public void click(JPanel clickedPanel, Color currentColor) {
+        this.elapsedTime = (float) (System.currentTimeMillis() - this.startTime) / 1000;
         
         if (clickedPanel.getBackground() == currentColor) match(true);
         else match(false);
     }
     
     private void match(boolean matchColor) {
-        if (matchColor) score += Math.round(10 / elapsedTime);
         
-        scoreLabel.setText("Score: " + score);
+        if (matchColor) this.score += Math.round(10 / (elapsedTime) );
+        
+        this.scoreLabel.setText("Score: " + (int) this.score);
         
         // reset clock 
-        startTime = 0;
-        elapsedTime = 0;
+        this.startTime = System.currentTimeMillis();
+        this.elapsedTime = 0;
         
         // change colors to random
         randomizeColorPanel();
@@ -59,20 +62,18 @@ public class GameController {
     }
     
     private void randomizeCurrentColor() {
-        currentColor = pickRandomColor();
-        matchingColorPanel.setBackground(pickRandomColor());
+        this.currentColor = pickRandomColor();
+        this.matchingColorPanel.setBackground(pickRandomColor());
     }
     
     private void randomizeColorPanel() {
-        for (int i = 0; i < p.length; i++) {
-            p[i].setBackground(pickRandomColor());
+        for (JPanel p1 : p) {
+            p1.setBackground(pickRandomColor());
         }
     }
     
     private Color pickRandomColor() {
         int randomNumber = (int) (Math.random() * 6);
-        
-        System.out.println(randomNumber);
         
         Color randomColor;
         
