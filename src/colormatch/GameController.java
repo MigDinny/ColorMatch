@@ -6,8 +6,6 @@
 package colormatch;
 
 import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -37,11 +35,15 @@ public class GameController {
         this.startTime = System.currentTimeMillis();
     }
     
-    public void click(JPanel clickedPanel, Color currentColor) {
-        this.elapsedTime = (float) (System.currentTimeMillis() - this.startTime) / 1000;
+    public void click(JPanel clickedPanel, Color currentColor, boolean pass) {
+        if (pass) match(false);
+        else {
+            this.elapsedTime = (float) (System.currentTimeMillis() - this.startTime) / 1000;
         
-        if (clickedPanel.getBackground() == currentColor) match(true);
-        else match(false);
+            if (clickedPanel.getBackground() == currentColor) match(true);
+            else match(false);
+        }
+        
     }
     
     private void match(boolean matchColor) {

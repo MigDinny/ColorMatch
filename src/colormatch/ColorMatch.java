@@ -13,8 +13,7 @@ public class ColorMatch extends JFrame {
         initUI();
     }
     
-    private void initUI() {
-        
+    private void initUI() {        
         add(new Board());
         
         setSize(360, 390);
@@ -26,6 +25,7 @@ public class ColorMatch extends JFrame {
     }
     
     public static void main(String[] args) {
+        
         EventQueue.invokeLater(() -> {
             ColorMatch ex = new ColorMatch();
             ex.setVisible(true);

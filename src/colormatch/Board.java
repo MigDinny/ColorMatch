@@ -1,8 +1,5 @@
 package colormatch;
 
-import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -258,6 +255,11 @@ public class Board extends javax.swing.JPanel {
         matchingColor.setBackground(new java.awt.Color(255, 0, 0));
         matchingColor.setMinimumSize(new java.awt.Dimension(20, 20));
         matchingColor.setPreferredSize(new java.awt.Dimension(20, 20));
+        matchingColor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                matchingColorMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout matchingColorLayout = new javax.swing.GroupLayout(matchingColor);
         matchingColor.setLayout(matchingColorLayout);
@@ -273,7 +275,7 @@ public class Board extends javax.swing.JPanel {
         top.add(matchingColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 20, 20));
 
         scoreLabel.setForeground(new java.awt.Color(255, 255, 255));
-        scoreLabel.setText("Score: 100");
+        scoreLabel.setText("Score: 0");
         scoreLabel.setMaximumSize(new java.awt.Dimension(52, 30));
         scoreLabel.setMinimumSize(new java.awt.Dimension(52, 30));
         scoreLabel.setPreferredSize(new java.awt.Dimension(52, 30));
@@ -296,48 +298,53 @@ public class Board extends javax.swing.JPanel {
 
     private void panel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel1MouseClicked
         // TODO add your handling code here:
-        gc.click(panel1, matchingColor.getBackground());
+        gc.click(panel1, matchingColor.getBackground(), false);
     }//GEN-LAST:event_panel1MouseClicked
 
     private void panel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel2MouseClicked
         // TODO add your handling code here:
-        gc.click(panel2, matchingColor.getBackground());
+        gc.click(panel2, matchingColor.getBackground(), false);
     }//GEN-LAST:event_panel2MouseClicked
 
     private void panel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel3MouseClicked
         // TODO add your handling code here:
-        gc.click(panel3, matchingColor.getBackground());
+        gc.click(panel3, matchingColor.getBackground(), false);
     }//GEN-LAST:event_panel3MouseClicked
 
     private void panel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel4MouseClicked
         // TODO add your handling code here:
-        gc.click(panel4, matchingColor.getBackground());
+        gc.click(panel4, matchingColor.getBackground(), false);
     }//GEN-LAST:event_panel4MouseClicked
 
     private void panel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel5MouseClicked
         // TODO add your handling code here:
-        gc.click(panel5, matchingColor.getBackground());
+        gc.click(panel5, matchingColor.getBackground(), false);
     }//GEN-LAST:event_panel5MouseClicked
 
     private void panel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel6MouseClicked
         // TODO add your handling code here:
-        gc.click(panel6, matchingColor.getBackground());
+        gc.click(panel6, matchingColor.getBackground(), false);
     }//GEN-LAST:event_panel6MouseClicked
 
     private void panel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel7MouseClicked
         // TODO add your handling code here:
-        gc.click(panel7, matchingColor.getBackground());
+        gc.click(panel7, matchingColor.getBackground(), false);
     }//GEN-LAST:event_panel7MouseClicked
 
     private void panel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel8MouseClicked
         // TODO add your handling code here:
-        gc.click(panel8, matchingColor.getBackground());
+        gc.click(panel8, matchingColor.getBackground(), false);
     }//GEN-LAST:event_panel8MouseClicked
 
     private void panel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel9MouseClicked
         // TODO add your handling code here:
-        gc.click(panel9, matchingColor.getBackground());
+        gc.click(panel9, matchingColor.getBackground(), false);
     }//GEN-LAST:event_panel9MouseClicked
+
+    private void matchingColorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_matchingColorMouseClicked
+        // TODO add your handling code here:
+        gc.click(matchingColor, matchingColor.getBackground(), true);
+    }//GEN-LAST:event_matchingColorMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
