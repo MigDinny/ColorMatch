@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package colormatch;
 
 import java.awt.Color;
@@ -26,6 +21,9 @@ public class GameController {
     
     public GameController() {}
    
+    /*
+    * This constructor grabs a panel and starts randomizing the colors.
+    */
     public GameController(JPanel p[], JPanel matchingColorPanel, JLabel scoreLabel) {
         this.p = p;
         this.matchingColorPanel = matchingColorPanel;
@@ -37,6 +35,9 @@ public class GameController {
         this.startTime = System.currentTimeMillis();
     }
     
+    /*
+    * This method handles the clicks.
+    */
     public void click(JPanel clickedPanel, Color currentColor, boolean pass) {
         if (pass) match(false);
         else {
@@ -48,6 +49,9 @@ public class GameController {
         
     }
     
+    /*
+    * This method checks if the color actually matches.
+    */
     private void match(boolean matchColor) {
         
         if (matchColor) this.score += Math.round(10 / (elapsedTime) );
