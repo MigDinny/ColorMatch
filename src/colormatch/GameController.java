@@ -24,6 +24,8 @@ public class GameController {
     private long startTime = 0;
     private float elapsedTime = 0f;
     
+    public GameController() {}
+   
     public GameController(JPanel p[], JPanel matchingColorPanel, JLabel scoreLabel) {
         this.p = p;
         this.matchingColorPanel = matchingColorPanel;
