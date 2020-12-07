@@ -1,3 +1,3 @@
 # ColorMatch
 
-KEKW2
+ColorMatch game made in Java
